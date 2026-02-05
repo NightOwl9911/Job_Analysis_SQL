@@ -28,7 +28,7 @@ plt.figure(figsize=(14, 10))
 plt.barh(top20["job_company"], top20["salary_year_avg"], color="darkblue")
 plt.xlabel("Average Yearly Salary (USD)")
 plt.ylabel("Job Title | Company")
-plt.title("Top 20 Highest Paying Jobs (Unique Job + Company)")
+plt.title("Top 20 Highest Paying Jobs (Unique Job + Company) - Colombia")
 plt.gca().invert_yaxis()
 
 # Format salary axis with $

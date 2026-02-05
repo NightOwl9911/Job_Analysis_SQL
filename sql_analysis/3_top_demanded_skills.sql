@@ -6,3 +6,37 @@ Questions: What are the most in demands skills for Data analysis jobs and separa
 - Why? Retrieves the top 10 skills with the highest demand in job market,
     providing insights into the most valuable skills for job seekers.
 */ 
+
+
+SELECT
+    sd.skills,
+    COUNT(sjd.job_id) as skill_in_demand
+FROM
+    job_postings_fact jpf
+INNER JOIN skills_job_dim sjd ON jpf.job_id = sjd.job_id
+INNER JOIN skills_dim sd ON sjd.skill_id = sd.skill_id
+WHERE
+    jpf.job_title_short = 'Data Analyst'
+GROUP BY
+    sd.skills
+ORDER BY
+    skill_in_demand DESC
+LIMIT 10;
+
+
+
+
+SELECT
+    sd.skills,
+    COUNT(sjd.job_id) as skill_in_demand
+FROM
+    job_postings_fact jpf
+INNER JOIN skills_job_dim sjd ON jpf.job_id = sjd.job_id
+INNER JOIN skills_dim sd ON sjd.skill_id = sd.skill_id
+WHERE
+    jpf.job_title_short = 'Data Scientist'
+GROUP BY
+    sd.skills
+ORDER BY
+    skill_in_demand DESC
+LIMIT 10;

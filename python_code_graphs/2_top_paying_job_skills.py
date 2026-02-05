@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load your dataset
-df = pd.read_csv(r"C:\Users\WIN10\Desktop\Job_Analysis_SQL\query_results\2_top_paying_job_skills.csv")  # change path if needed
+# Load dataset
+df = pd.read_csv(r"C:\Users\WIN10\Desktop\Job_Analysis_SQL\query_results\2_top_paying_job_skills.csv")
 
 # Split and explode skills column
 skills_series = df["skills"].dropna().str.split(", ")

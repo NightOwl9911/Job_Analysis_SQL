@@ -10,13 +10,14 @@ Questions: What are the most in demands skills for Data analysis jobs and separa
 
 SELECT
     sd.skills,
-    COUNT(sjd.job_id) as skill_in_demand
+    COUNT(sjd.job_id) AS skill_in_demand
 FROM
     job_postings_fact jpf
 INNER JOIN skills_job_dim sjd ON jpf.job_id = sjd.job_id
 INNER JOIN skills_dim sd ON sjd.skill_id = sd.skill_id
 WHERE
     jpf.job_title_short = 'Data Analyst'
+    AND job_location LIKE '%Colombia%'
 GROUP BY
     sd.skills
 ORDER BY
@@ -28,13 +29,14 @@ LIMIT 10;
 
 SELECT
     sd.skills,
-    COUNT(sjd.job_id) as skill_in_demand
+    COUNT(sjd.job_id) AS skill_in_demand
 FROM
     job_postings_fact jpf
 INNER JOIN skills_job_dim sjd ON jpf.job_id = sjd.job_id
 INNER JOIN skills_dim sd ON sjd.skill_id = sd.skill_id
 WHERE
     jpf.job_title_short = 'Data Scientist'
+    AND job_location LIKE '%Colombia%'
 GROUP BY
     sd.skills
 ORDER BY

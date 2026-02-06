@@ -32,7 +32,7 @@ WITH top_jobs AS (
     -- 2) Jobs located in Colombia
     -- 3) Data Analyst and Scientist roles
     WHERE
-        jpf.salary_year_avg is not null 
+        jpf.salary_year_avg IS NOT NULL
         AND jpf.job_location LIKE '%Colombia%'
         AND (jpf.job_title_short = 'Data Analyst' OR jpf.job_title_short = 'Data Scientist')
 

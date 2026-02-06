@@ -36,8 +36,7 @@ LEFT JOIN company_dim cd
 WHERE
     jpf.salary_year_avg IS NOT NULL
     AND jpf.job_location LIKE '%Colombia%'
-    AND (jpf.job_title_short = 'Data Analyst' 
-         OR jpf.job_title_short = 'Data Scientist')
+    AND jpf.job_title_short IN ('Data Analyst','Data Scientist')
 
 -- Sort by highest annual salary
 ORDER BY

@@ -26,7 +26,7 @@ ORDER BY
 LIMIT 20;
 ```
 
-![Top paying jobs Colombia](job_analysis_graphs\top_20_jobs_colombia.png)
+![Top paying jobs Colombia](./job_analysis_graphs/top_20_jobs_colombia.png)
 
 
 ### 2. Skills for Top Paying Jobs

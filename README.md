@@ -1,6 +1,7 @@
 # <p align="center"> OPTIMAL SKILLS TO LEARN TO BECOME A DATA ANALYST/SCIENTIST IN COLOMBIA - 2023 </p>
 ## 🔷 Introduction 🐍🗄️
 ### SQL Queries
+Check them here: [query_results](./query_results/)
 ## 🔷 Background
 ## 🔷 Tools Used
 ## 🔷 Analysis
@@ -13,3 +14,4 @@ This was done with the intentation
 ## 🔷 What I take
 ## 🔷 Conclusions
 ### Closing takes
+

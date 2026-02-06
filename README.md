@@ -136,7 +136,7 @@ ORDER BY
     infil.avg_salary_skill DESC 
 LIMIT 30; 
 ```
-![Top paying job skills](./job_analysis_graphs/top_payings_skills.png)
+![Top paying job skills]()
 
 
 ### 5. Most Optimal Skills to Learn

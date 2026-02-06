@@ -2,7 +2,7 @@
 Question: What are the top-paying Data Analyst / Data Scientist jobs in Colombia?
 - Identify the top 20 highest-paying Data Analyst and Data Scientist roles
 - Focus on job postings with specified salaries (remove nulls)
-- Includes company names of the top 20; if there is no company related to the job,
+- Includes company names of the top 10; if there is no company related to the job,
   it will show 'Company_No_Specified'
 - Why? Highlight the top-paying opportunities for Data Analysts/Scientists,
   offering insights into employment options.
@@ -43,4 +43,4 @@ ORDER BY
     jpf.salary_year_avg DESC
 
 -- Return only the top 20 highest-paying jobs
-LIMIT 20;
+LIMIT 10;

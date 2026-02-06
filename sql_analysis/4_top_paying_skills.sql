@@ -29,8 +29,7 @@ WITH colombia_information AS (
     WHERE
         job_location LIKE '%Colombia%'          -- Limits analysis to Colombia
         AND salary_year_avg IS NOT NULL         -- Ensures salary data is available
-        AND (job_title_short = 'Data Analyst' 
-             OR job_title_short = 'Data Scientist')
+        AND job_title_short IN ('Data Analyst','Data Scientist')
 ),
 
 information_filter AS (

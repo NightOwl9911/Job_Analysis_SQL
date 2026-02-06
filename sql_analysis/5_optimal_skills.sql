@@ -53,8 +53,7 @@ average_salary AS (
         WHERE
             job_location LIKE '%Colombia%'
             AND salary_year_avg IS NOT NULL
-            AND (job_title_short = 'Data Analyst' 
-                 OR job_title_short = 'Data Scientist')
+            AND job_title_short IN ('Data Analyst','Data Scientist')
     ),
 
     information_filter AS (

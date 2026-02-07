@@ -252,6 +252,13 @@ LIMIT 10;
 
 This was done with the intentation
 ## 🔷 What I take 📖
+Throughout this project, I significantly strengthened my SQL skill set by applying advanced querying techniques and analytical methods.
+
+The key take aways:
+- Understanding the SQL syntax alongside working with a real project made understand important concepts
+
+
+
 ## 🔷 Conclusions 📝
 ### Closing takes
 

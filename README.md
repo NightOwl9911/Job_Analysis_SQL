@@ -48,7 +48,8 @@ Here is what I got:
 
 
 
-### 1. Top Paying Data Analyist and Scientist Jobs
+### 1. Top Paying Data Analyst and Scientist Jobs
+This analysis uses SQL to identify the top 10 highest-paying Data Analyst and Data Scientist roles in Colombia. The goal is to better understand salary levels in the market and get a clearer idea of which roles and companies tend to offer the best compensation.
 
 ```sql
 SELECT
@@ -67,10 +68,13 @@ ORDER BY
 LIMIT 20;
 ```
 
+The query joins job postings with company information, filters for data analyst and scientist roles in Colombia with available salary data, and sorts by annual salary in descending order. It extracts the job title, salary, and company name for the top 20 paying positions (only the top 10 are shown for visibility reasons), providing a clear ranking of premium data roles in the Colombian market.
+
 ![Top paying jobs Colombia](./job_analysis_graphs/top_10_jobs_colombia.png)
 
-
+The graph visualizes the top 10 highest-paying positions, showing salary ranges from $170,575 (Data Scientist at Rappi) down to $118,640 (Quality Data Analyst at Rappi). Rappi, Publicis Groupe, Nisum, Nubank, and Kyndryl emerge as the top employers offering the highest salaries in Colombia (2023), with Data Scientists and Architects commanding premium compensation ($156k-$171k), while Data Analysts range from $79k-$118k. All positions are full-time roles primarily located in Bogotá.
 ### 2. Skills for Top Paying Jobs
+Identifying the skills required for top-paying positions is essential for career development and skill prioritization. This analysis examines which technical and analytical competencies are most prevalent among the highest-compensated data roles in Colombia. By understanding the skill patterns in premium positions, professionals can focus their learning efforts on the competencies that lead to the best career outcomes.
 
 ```sql
 WITH top_jobs AS (
@@ -100,10 +104,15 @@ INNER JOIN skills_dim sd ON sjd.skill_id = sd.skill_id
 GROUP BY sd.skills
 ORDER BY frequency DESC;
 ```
+The query uses a CTE to extract the top 20 highest-paying data analyst and scientist jobs in Colombia, then joins this dataset with skills and job-skills dimensions to count skill frequency. It aggregates the data to show which skills appear most often across these premium positions, ranked by occurrence, giving insight into the technical competencies demanded by top employers.
+
 ![Top paying skills](./job_analysis_graphs/top_skills_by_frequency.png)
+
+The graph reveals that **SQL is the dominant skill in top-paying positions (10 occurrences)**, followed by Excel (9), and Spark (8), indicating that database management and big data processing are critical for commanding premium salaries. Business intelligence tools like Power BI (6) and Tableau (5), along with programming languages Python (4) and SAS (4), round out the top competencies. This skill distribution shows that data professionals seeking high-paying roles in Colombia need a solid foundation in SQL and modern analytics platforms.
 
 
 ### 3. In-demand Skills for Data Analysts and Scientists
+While the top-paying positions reveal premium skill requirements, analyzing all data analyst and scientist job postings provides a broader market perspective. This analysis compares the in-demand skills across the entire Colombian job market for both roles, revealing whether salary-driving skills align with market-wide demand. By separating analysts and scientists, we can identify universal competencies versus role-specific specializations that define each career path.
 
 ```sql
 SELECT
@@ -140,9 +149,15 @@ ORDER BY
     skill_in_demand DESC 
 LIMIT 10;  
 ```
+
+Two parallel queries filter all data analyst and scientist job postings in Colombia by role type, then count the frequency of each skill across all positions (not limited to top 20). This approach reveals the broader market demand for skills, showing which competencies are truly essential for each role across the entire job market, enabling comparison between what top employers want versus what the broader market demands.
+
 ![Demanded skills for data analysts and scientists](./job_analysis_graphs/in_demand_skills.png)
 
+The analysis confirms that SQL remains essential for both roles (715 for analysts, 502 for scientists), validating it as a universal foundation skill. However, role-specific divergence emerges: Data Analysts prioritize Excel (550), Power BI (387), and Tableau (348) for business intelligence, while Data Scientists emphasize Python (566), R (329), and Spark (176) for advanced analytics and machine learning. Both roles value Python, Power BI, and Tableau, but the data proves that analysts focus on traditional BI tools while scientists require programming and big data expertise—confirming distinct career trajectories within the Colombian market.
+
 ### 4. Skills Based on Salary
+Understanding which skills correlate with higher salaries is crucial for career planning, but it's important to note that no single skill guarantees a high-paying position. This analysis identifies the skills associated with the highest average salaries in Colombia's data job market. Professionals seeking premium compensation must develop a comprehensive skill set that combines multiple competencies—database expertise, programming languages, cloud platforms, and analytical tools working together to unlock high-paying opportunities.
 
 ```sql
 WITH colombia_information AS (
@@ -177,11 +192,16 @@ ORDER BY
     infil.avg_salary_skill DESC 
 LIMIT 30; 
 ```
+
+The query filters all data analyst and scientist jobs in Colombia with salary data, then joins with skills information to calculate the average salary for each skill across all positions where it appears. Skills are ranked by average compensation, providing a salary-weighted perspective of technical competencies. The results highlight which skills are associated with the best-paying roles, though success requires mastering multiple skills in combination.
+
 ![Top paying job skills](./job_analysis_graphs/top_payings_skills.png)
 
+The top 20 highest-paying skills range from SQL Server and specialized databases ($165,000 avg) down to Power BI ($94,817 avg), with database technologies, cloud platforms (AWS, Redshift), and big data tools (Hadoop, Spark) commanding premium compensation. However, this ranking emphasizes skill value in isolation—real high-paying positions require combining multiple skills: SQL + Spark + AWS, or SQL Server + NoSQL + Kafka. Professionals should view this as a guide to which skills enhance earning potential when integrated into a broader technical toolkit rather than focusing on individual high-paying skills.
 
 ### 5. Most Optimal Skills to Learn
 
+Identifying the most optimal skills to learn requires balancing salary potential with market demand—a skill may pay exceptionally well but offer few opportunities, or appear frequently but not command premium compensation. This final analysis filters for skills appearing in at least 3 job postings (ensuring viable market demand) while ranking by average salary, revealing the practical skills that maximize both earning potential and employment opportunities. This represents the ultimate guide for structuring a learning roadmap to land high-paying data roles in Colombia.
 
 ```SQL
 WITH skills_demand AS (
@@ -248,17 +268,36 @@ ORDER BY
 LIMIT 10;                                     
 ```
 
+The query combines two CTEs: one calculating skill frequency across all data analyst and scientist jobs in Colombia, and another computing average salary per skill. Both are joined to filter for skills with 3+ occurrences, then ranked by salary and demand. This approach ensures only skills with meaningful market presence are included, balancing the trade-off between high compensation and actual job availability to identify genuinely optimal learning targets.
+
 ![Most optimal skills](./job_analysis_graphs/optimal_skills.png)
+
+The results reveal that Hadoop and NoSQL top the list at $156,333 average salary with the highest earning potential, followed by AWS ($144,225) and Spark ($121,322). Notably, SQL, Power BI, Python, Tableau, and Excel—the core competencies for data analysts—rank within the top 10 despite not commanding the absolute highest individual salaries, with SQL ($116,001), Spark ($121,322), and Python ($89,922) appearing most frequently (8-12 occurrences). This proves that the foundation skills are both high-paying and highly demanded, making them the smartest investments for aspiring data professionals, while advanced skills like Hadoop and NoSQL serve as career accelerators for those seeking specialist roles and maximum compensation.
 
 This was done with the intentation
 ## 🔷 What I take 📖
-Throughout this project, I significantly strengthened my SQL skill set by applying advanced querying techniques and analytical methods.
+Throughout this project, I significantly strengthened my SQL skill set by applying advanced querying techniques and analytical methods to real-world job market data. Understanding the SQL syntax alongside working with a real project made me understand important concepts and how to leverage data to answer meaningful business questions.
+
+Based on the comprehensive analysis completed, I've validated that my current learning path is strategically aligned with the Colombian data job market. My focus on mastering **SQL**, **Python**, **Power BI**, **Excel**, and progressively building competency in these core skills matches exactly what the market demands—these skills appear in both top-paying positions and across 90% of all data analyst and scientist job postings. The analysis confirms that this foundation provides both high employability and strong salary potential (**$89k-$116k average**), with clear pathways to advance into specialized roles commanding premium compensation.
+
+Additionally, AI tools (like **ChatGPT** and **GitHub Copilot**) proved invaluable in organizing and interpreting the analysis results, helping me structure complex data insights into actionable conclusions. **GitHub** has been essential for version control and project reproducibility, enabling me to track changes and maintain a clean project history throughout the analysis workflow.
 
 The key take aways:
-- Understanding the SQL syntax alongside working with a real project made understand important concepts
+
+● SQL is non-negotiable for aspiring data professionals in Colombia.
+
+● Building a comprehensive skill set is more valuable than specializing in one high-paying skill.
+
+● My learning roadmap (SQL → Python → Power BI/Excel) directly reflects market demands and salary progression.
+
+● Data-driven decision making, combined with modern development tools, accelerates both technical and analytical skill development.
 
 
 
 ## 🔷 Conclusions 📝
 ### Closing takes
+- **Combined Approach:** This project successfully merged Python for data modeling, SQL for complex query writing, and AI tools for analysis acceleration to extract actionable insights from the Colombian data job market.
+- **AI Efficiency:** AI tools helped organize complex analysis ideas, polish Python code, and refine SQL queries, freeing me to focus on what truly matters: interpreting the analysis and drawing meaningful conclusions rather than routine formatting and documentation tasks.
+- **SQL as Foundation:** I demonstrated that SQL fundamentals are the gateway skill in the data job market—every insight traced back to strong query construction, debugging complex joins, and validating results.
+- **Project Goal Achieved:** The primary objective was mastering SQL fundamentals through applied, real-world problem-solving rather than isolated learning.
 
